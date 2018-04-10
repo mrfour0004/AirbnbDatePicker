@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'AirbnbDatePicker_Example' do
+  pod 'AirbnbDatePicker', :path => '../'
+
+  target 'AirbnbDatePicker_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
