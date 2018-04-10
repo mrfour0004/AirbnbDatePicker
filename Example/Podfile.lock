@@ -1,0 +1,16 @@
+PODS:
+  - AirbnbDatePicker (0.1.0)
+
+DEPENDENCIES:
+  - AirbnbDatePicker (from `../`)
+
+EXTERNAL SOURCES:
+  AirbnbDatePicker:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  AirbnbDatePicker: ba85dc60b94ecbc981f217c71fa263181052542a
+
+PODFILE CHECKSUM: d08aac622ba3d2c7d1b1ad01ac1483dcf25c838f
+
+COCOAPODS: 1.5.0

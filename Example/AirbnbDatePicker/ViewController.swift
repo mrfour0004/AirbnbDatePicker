@@ -7,18 +7,35 @@
 //
 
 import UIKit
+import AirbnbDatePicker
 
 class ViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+    // MARK: - Properties
+
+    private var selectedDateInterval: DateInterval? {
+        didSet {
+            label.text = String(describing: selectedDateInterval)
+        }
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+    // MARK: - IBOutlets
 
+    @IBOutlet private weak var label: UILabel!
+
+    // MARK: - IBActions
+
+    @IBAction func presentDatePicker(_ sender: Any) {
+        let dateInterval = DateInterval(start: Date(), duration: 86400*365)
+        let datePickerViewController = AirbnbDatePickerViewController(dateInterval: dateInterval, selectedDateInterval: selectedDateInterval)
+        datePickerViewController.delegate = self
+
+        present(UINavigationController(rootViewController: datePickerViewController), animated: true, completion: nil)
+    }
 }
 
+extension ViewController: AirbnbDatePickerViewControllerDelegate {
+    func datePickerController(_ picker: AirbnbDatePickerViewController, didFinishPicking dateInterval: DateInterval) {
+        selectedDateInterval = dateInterval
+    }
+}
