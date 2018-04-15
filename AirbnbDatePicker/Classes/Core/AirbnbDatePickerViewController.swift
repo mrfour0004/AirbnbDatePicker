@@ -13,22 +13,31 @@ import UIKit
 }
 
 public class AirbnbDatePickerViewController: UIViewController {
-    
-    // MARK: - Properties
+
+    // MARK: - Public properties
+
+    public weak var delegate: AirbnbDatePickerViewControllerDelegate?
+
+    public var actionTitle: String = NSLocalizedString("Confirm", comment: "") {
+        didSet {
+            actionButton.setTitle(actionTitle, for: .normal)
+        }
+    }
+
+    // MARK: - Private properties
     
     private let viewModel: AirbnbDatePickerViewModel
-    
     private let calendar: Calendar
-    private var isFirstLoad: Bool = true
-    
-    public weak var delegate: AirbnbDatePickerViewControllerDelegate?
-    
+    private var isFirstLoad = true
+
     // MARK: - Views
-    
+
     private var weekdayHeaderStackView: UIStackView!
-    private let headerSeparator = UIView()
     private let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
-    private let toolBar = UIToolbar()
+    private let titleView = UIView()
+    private let titleLabel = UILabel()
+    private let clearButton = UIButton(type: .system)
+    private let actionButton = UIButton(type: .system)
     
     // MARK: - Life cycle
     
@@ -36,8 +45,6 @@ public class AirbnbDatePickerViewController: UIViewController {
         self.calendar = calendar
         self.viewModel = AirbnbDatePickerViewModel(dateInterval: dateInterval, selectedDateInterval: selectedDateInterval, calendar: calendar)
         super.init(nibName: nil, bundle: nil)
-        
-        automaticallyAdjustsScrollViewInsets = false
     }
     
     required public init?(coder aDecoder: NSCoder) {
@@ -57,11 +64,6 @@ public class AirbnbDatePickerViewController: UIViewController {
         super.viewSafeAreaInsetsDidChange()
         guard isFirstLoad else { return }
         scrollToSelectedDateOrToday(animated: false)
-    }
-    
-    override public func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        loggingPrint(navigationController)
     }
     
     override public func viewDidLayoutSubviews() {
@@ -84,10 +86,10 @@ public extension AirbnbDatePickerViewController {
         collectionView.reloadData()
         scrollToSelectedDateOrToday(animated: true)
     }
-    
-    @objc func didClickSaveButton(_ button: UIBarButtonSystemItem) {
+
+    @objc func didClickActionButton(_ button: UIButton) {
         guard let selectedDateInterval = viewModel.selectedDateInterval else {
-            // TODO: Should remind users to pick dates
+            // TODO: Should remind users to pick dates?
             return
         }
 
@@ -96,45 +98,71 @@ public extension AirbnbDatePickerViewController {
             self.delegate?.datePickerController?(self, didFinishPicking: selectedDateInterval)
         }
     }
+
+    @objc func didClickClearButton(_ button: UIButton) {
+        loggingPrint("")
+    }
 }
+
 
 // MARK: - Prepare view
 
 fileprivate extension AirbnbDatePickerViewController {
     func prepareView() {
         view.backgroundColor = .white
-        
-        prepareNavigationItem()
-        prepareHeaderSeparator()
+
+        prepareTitleView()
         prepareCollectionView()
         prepareWeekdayStackView()
+        prepareActionButton()
         prepareSubviewConstriats()
     }
-    
-    func prepareNavigationItem() {
-        let saveButton = UIBarButtonItem(title: "Save", style: .plain, target: self, action: #selector(didClickSaveButton))
-        navigationItem.rightBarButtonItem = saveButton
+
+    func prepareTitleView() {
+        titleLabel.text = "Select dates"
+        titleLabel.font = Font.medium(ofSize: 14)
+        titleLabel.textColor = .text
+        titleLabel.translatesAutoresizingMaskIntoConstraints = false
+
+        clearButton.setTitle(NSLocalizedString("Clear", comment: ""), for: .normal)
+        clearButton.setTitleColor(.darkGray, for: .normal)
+        clearButton.titleLabel?.font = Font.medium(ofSize: 14)
+        clearButton.addTarget(self, action: #selector(didClickClearButton(_:)), for: .touchUpInside)
+        clearButton.translatesAutoresizingMaskIntoConstraints = false
+
+        titleView.addSubview(titleLabel)
+        titleView.addSubview(clearButton)
+
+        NSLayoutConstraint.activate([
+            titleLabel.centerXAnchor.constraint(equalTo: titleView.centerXAnchor),
+            titleLabel.centerYAnchor.constraint(equalTo: titleView.centerYAnchor),
+            clearButton.centerYAnchor.constraint(equalTo: titleView.centerYAnchor),
+            clearButton.trailingAnchor.constraint(equalTo: titleView.trailingAnchor, constant: -20)
+        ])
     }
     
     func prepareCollectionView() {
         collectionView.backgroundColor = .white
         collectionView.register(AirbnbDatePickerCollectionViewCell.self, forCellWithReuseIdentifier: AirbnbDatePickerCollectionViewCell.className)
         collectionView.register(AirbnbDatePickerHeaderView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: AirbnbDatePickerHeaderView.className)
+        collectionView.showsVerticalScrollIndicator = false
         
         collectionView.dataSource = viewModel
         collectionView.delegate = self
     }
-    
-    func prepareHeaderSeparator() {
-        headerSeparator.backgroundColor = .separator
+
+    func prepareActionButton() {
+        actionButton.setTitle(actionTitle, for: .normal)
+        actionButton.setTitleColor(.main, for: .normal)
+        actionButton.addTarget(self, action: #selector(didClickActionButton), for: .touchUpInside)
     }
-    
+
     func prepareWeekdayStackView() {
         let arrangedSubviews = calendar.veryShortWeekdaySymbols.map { symbol -> UILabel in
             let label = UILabel()
             label.text = symbol
             label.textColor = .text
-            label.font = Font.regular(ofSize: 16)
+            label.font = Font.medium(ofSize: 12)
             label.textAlignment = .center
             
             return label
@@ -148,61 +176,29 @@ fileprivate extension AirbnbDatePickerViewController {
     }
     
     func prepareSubviewConstriats() {
-        view.addSubview(collectionView)
-        collectionView.translatesAutoresizingMaskIntoConstraints = false
-        
-        view.addSubview(toolBar)
-        toolBar.translatesAutoresizingMaskIntoConstraints = false
-        
-        view.addSubview(weekdayHeaderStackView)
-        weekdayHeaderStackView.translatesAutoresizingMaskIntoConstraints = false
-        
-        view.addSubview(headerSeparator)
-        headerSeparator.translatesAutoresizingMaskIntoConstraints = false
-        
-        if #available(iOS 11.0, *) {
-            let stackViewHeightConstraint = weekdayHeaderStackView.heightAnchor.constraint(equalToConstant: Config.weekdayHeaderHeight)
-            let stackViewTopConstarint = weekdayHeaderStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor)
-            let stackViewLeadingConstraint = weekdayHeaderStackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: Config.sectionHorizonInset)
-            let stackViewTrailingConstraint = weekdayHeaderStackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -Config.sectionHorizonInset)
-            
-            let headerSeparatorHeightConstriant = headerSeparator.heightAnchor.constraint(equalToConstant: 1)
-            let headerSeparatorTopConstraint = headerSeparator.topAnchor.constraint(equalTo: weekdayHeaderStackView.bottomAnchor)
-            let headerSeparatorLeadingConstraint = headerSeparator.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor)
-            let headerSeparatorTrailingConstraint = headerSeparator.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor)
-            let headerSeparatorBottomConstraint = headerSeparator.bottomAnchor.constraint(equalTo: collectionView.topAnchor)
-            
-            let collectionViewLeadingConstraint = collectionView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor)
-            let collectionViewTrailingConstraint = collectionView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor)
-            let collectionViewBottomConstraint = collectionView.bottomAnchor.constraint(equalTo: toolBar.topAnchor)
-            
-            let toolBarLeadingConstraint = toolBar.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor)
-            let toolBarTrailingConstraint = toolBar.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor)
-            let toolBarBottomConstraint = toolBar.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
-            
-            NSLayoutConstraint.activate([stackViewHeightConstraint, stackViewTopConstarint, stackViewLeadingConstraint, stackViewTrailingConstraint, headerSeparatorHeightConstriant, headerSeparatorTopConstraint, headerSeparatorLeadingConstraint, headerSeparatorTrailingConstraint, headerSeparatorBottomConstraint, collectionViewLeadingConstraint, collectionViewTrailingConstraint, collectionViewBottomConstraint, toolBarBottomConstraint, toolBarLeadingConstraint, toolBarTrailingConstraint])
-        } else {
-            let stackViewHeightConstraint = weekdayHeaderStackView.heightAnchor.constraint(equalToConstant: Config.weekdayHeaderHeight)
-            let stackViewTopConstarint = weekdayHeaderStackView.topAnchor.constraint(equalTo: topLayoutGuide.bottomAnchor)
-            let stackViewLeadingConstraint = weekdayHeaderStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Config.sectionHorizonInset)
-            let stackViewTrailingConstraint = weekdayHeaderStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Config.sectionHorizonInset)
-            
-            let headerSeparatorHeightConstriant = headerSeparator.heightAnchor.constraint(equalToConstant: 1)
-            let headerSeparatorTopConstraint = headerSeparator.topAnchor.constraint(equalTo: weekdayHeaderStackView.bottomAnchor)
-            let headerSeparatorLeadingConstraint = headerSeparator.leadingAnchor.constraint(equalTo: view.leadingAnchor)
-            let headerSeparatorTrailingConstraint = headerSeparator.trailingAnchor.constraint(equalTo: view.trailingAnchor)
-            let headerSeparatorBottomConstraint = headerSeparator.bottomAnchor.constraint(equalTo: collectionView.topAnchor)
-            
-            let collectionViewLeadingConstraint = collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor)
-            let collectionViewTrailingConstraint = collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
-            let collectionViewBottomConstraint = collectionView.bottomAnchor.constraint(equalTo: toolBar.topAnchor)
-            
-            let toolBarLeadingConstraint = toolBar.leadingAnchor.constraint(equalTo: view.leadingAnchor)
-            let toolBarTrailingConstraint = toolBar.trailingAnchor.constraint(equalTo: view.trailingAnchor)
-            let toolBarBottomConstraint = toolBar.bottomAnchor.constraint(equalTo: bottomLayoutGuide.topAnchor)
-            
-            NSLayoutConstraint.activate([stackViewHeightConstraint, stackViewTopConstarint, stackViewLeadingConstraint, stackViewTrailingConstraint, headerSeparatorHeightConstriant, headerSeparatorTopConstraint, headerSeparatorLeadingConstraint, headerSeparatorTrailingConstraint, headerSeparatorBottomConstraint, collectionViewLeadingConstraint, collectionViewTrailingConstraint, collectionViewBottomConstraint, toolBarBottomConstraint, toolBarLeadingConstraint, toolBarTrailingConstraint])
-        }
+        let headerSeparator = UIView()
+        headerSeparator.backgroundColor = .separator
+
+        let footerSeparator = UIView()
+        footerSeparator.backgroundColor = .separator
+
+        let stackView = UIStackView(arrangedSubviews: [titleView, weekdayHeaderStackView, headerSeparator, collectionView, footerSeparator, actionButton])
+
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.axis = .vertical
+
+        view.addSubview(stackView)
+        NSLayoutConstraint.activate([
+            titleView.heightAnchor.constraint(equalToConstant: Config.titleViewHeight),
+            weekdayHeaderStackView.heightAnchor.constraint(equalToConstant: Config.weekdayHeaderHeight),
+            headerSeparator.heightAnchor.constraint(equalToConstant: 1),
+            footerSeparator.heightAnchor.constraint(equalToConstant: 1),
+            actionButton.heightAnchor.constraint(equalToConstant: 44),
+            stackView.topAnchor.constraint(equalTo: topLayoutGuide.bottomAnchor),
+            stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            stackView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        ])
     }
 }
 
@@ -236,7 +232,7 @@ extension AirbnbDatePickerViewController: UICollectionViewDelegateFlowLayout {
     }
     
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return CGSize(width: collectionView.frame.width, height: 60)
+        return CGSize(width: collectionView.frame.width, height: 40)
     }
     
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
@@ -269,7 +265,8 @@ fileprivate extension AirbnbDatePickerViewController {
         static let lineSpacing: CGFloat = 4
         static let numberOfWeekday: CGFloat = 7
         static let sectionVerticalInset: CGFloat = 8
-        static let sectionHorizonInset: CGFloat = 4
-        static let weekdayHeaderHeight: CGFloat = 44
+        static let sectionHorizonInset: CGFloat = 0
+        static let weekdayHeaderHeight: CGFloat = 32
+        static let titleViewHeight: CGFloat = 44
     }
 }

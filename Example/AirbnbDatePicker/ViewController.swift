@@ -30,7 +30,10 @@ class ViewController: UIViewController {
         let datePickerViewController = AirbnbDatePickerViewController(dateInterval: dateInterval, selectedDateInterval: selectedDateInterval)
         datePickerViewController.delegate = self
 
-        present(UINavigationController(rootViewController: datePickerViewController), animated: true, completion: nil)
+        let presentationController = AirbnbPresentationController(presentedViewController: datePickerViewController, presenting: self)
+        datePickerViewController.transitioningDelegate = presentationController
+
+        present(datePickerViewController, animated: true, completion: nil)
     }
 }
 

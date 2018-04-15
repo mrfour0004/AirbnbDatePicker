@@ -2,7 +2,7 @@
 //  NSObject+ClassName.swift
 //  AirbnbDatePicker
 //
-//  Created by Liang, KaiChih on 2018/4/10.
+//  Created by mrfour on 2018/4/10.
 //
 
 import Foundation

@@ -36,7 +36,7 @@ public class AirbnbDatePickerViewModel: NSObject {
     init(dateInterval: DateInterval, selectedDateInterval: DateInterval?, calendar: Calendar) {
         let start = calendar.startOfDay(for: dateInterval.start)
         // I use `Calendar.enumerateDates` function to get all dates with DateComponents(day: 1, hour: 0).
-        // However, the endDate dosenot match when its day is 1, so I add 1 hour to the endDate so that its components can match.
+        // However, the endDate does not match when its day is 1, so I add 1 hour to the endDate so that its components can match.
         let end = calendar.date(byAdding: .hour, value: 1, to: calendar.startOfDay(for: dateInterval.end))!
         
         self.dateInterval = DateInterval(start: start, end: end)
@@ -44,7 +44,8 @@ public class AirbnbDatePickerViewModel: NSObject {
         
         var months: [Month] = []
         calendar.enumerateDates(startingAfter: end, matching: DateComponents(day: 1, hour: 0), matchingPolicy: .strict, direction: .backward) { (date, match, stop) in
-            guard let date = date, date >= start else {
+            loggingPrint((date, match, stop))
+            guard let date = date, date >= calendar.dateInterval(of: .month, for: dateInterval.start)!.start else {
                 stop = true
                 return
             }

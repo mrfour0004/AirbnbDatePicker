@@ -217,6 +217,7 @@
 					};
 					607FACE41AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = 3XESJ7333X;
 						LastSwiftMigration = 0900;
 						TestTargetID = 607FACCF1AFB9204008FA782;
 					};
@@ -505,10 +506,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 076A4220947129FCC27C393A /* Pods-AirbnbDatePicker_Tests.debug.xcconfig */;
 			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
+				DEVELOPMENT_TEAM = 3XESJ7333X;
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -526,6 +525,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F7BAF98CBD876FE91AA94A35 /* Pods-AirbnbDatePicker_Tests.release.xcconfig */;
 			buildSettings = {
+				DEVELOPMENT_TEAM = 3XESJ7333X;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",

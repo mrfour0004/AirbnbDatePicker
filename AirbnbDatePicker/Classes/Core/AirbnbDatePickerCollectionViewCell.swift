@@ -49,6 +49,7 @@ class AirbnbDatePickerCollectionViewCell: UICollectionViewCell {
 fileprivate extension AirbnbDatePickerCollectionViewCell {
     func prepareView() {
         label.textColor = .text
+        label.font = Font.regular(ofSize: 16)
         
         contentView.addSubview(roundedView)
         contentView.addSubview(circleView)

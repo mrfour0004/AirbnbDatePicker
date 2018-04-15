@@ -31,7 +31,7 @@ class AirbnbDatePickerHeaderView: UICollectionReusableView {
 
 fileprivate extension AirbnbDatePickerHeaderView {
     func prepareView() {
-        label.font = Font.regular(ofSize: 28)
+        label.font = Font.regular(ofSize: 16)
         label.textColor = .text
         
         addSubview(label)
