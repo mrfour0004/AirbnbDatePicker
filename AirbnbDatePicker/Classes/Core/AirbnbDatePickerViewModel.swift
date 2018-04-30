@@ -44,7 +44,6 @@ public class AirbnbDatePickerViewModel: NSObject {
         
         var months: [Month] = []
         calendar.enumerateDates(startingAfter: end, matching: DateComponents(day: 1, hour: 0), matchingPolicy: .strict, direction: .backward) { (date, match, stop) in
-            loggingPrint((date, match, stop))
             guard let date = date, date >= calendar.dateInterval(of: .month, for: dateInterval.start)!.start else {
                 stop = true
                 return
@@ -82,18 +81,19 @@ extension AirbnbDatePickerViewModel {
     
     /// Return currently selected date interval. Return `nil` if either `indexPathForSelectedStartDate` or `indexPathForSelectedEndDate` is `nil`.
     var selectedDateInterval: DateInterval? {
-        guard let startIndexPaht = indexPathForSelectedStartDate, let endIndexPath = indexPathForSelectedEndDate else { return nil }
-        
-        let start = day(at: startIndexPaht).date
-        let end = day(at: endIndexPath).date
-        
+        guard let start = selectedStartDate, let end = selectedEndDate else { return nil }
         return DateInterval(start: start, end: end)
     }
-    
-    func selectToday() {
-        selectDate(today)
+
+    var selectedStartDate: Date? {
+        guard let indexPath = indexPathForSelectedStartDate else { return nil }
+        return day(at: indexPath).date
     }
-    
+
+    var selectedEndDate: Date? {
+        guard let indexPath = indexPathForSelectedEndDate else { return nil }
+        return day(at: indexPath).date
+    }
     
     /// Select a day at the specified index path.
     ///
@@ -106,12 +106,23 @@ extension AirbnbDatePickerViewModel {
         }
         
         switch (indexPathForSelectedStartDate, indexPathForSelectedEndDate) {
-        case let (start?, end?) where start == end && indexPath > end:
-            indexPathForSelectedEndDate = indexPath
-        default:
+        case (_?, _?):
             indexPathForSelectedStartDate = indexPath
+            indexPathForSelectedEndDate = nil
+        case (nil, _):
+            indexPathForSelectedStartDate = indexPath
+        case (let start?, nil) where indexPath > start:
             indexPathForSelectedEndDate = indexPath
+        case (let start?, nil) where indexPath <= start:
+            indexPathForSelectedStartDate = indexPath
+        default: break
         }
+    }
+
+
+    func clear() {
+        indexPathForSelectedStartDate = nil
+        indexPathForSelectedEndDate = nil
     }
 }
 
@@ -137,7 +148,7 @@ fileprivate extension AirbnbDatePickerViewModel {
         if !(dateInterval.start..<dateInterval.end ~= date) {
             day.options.insert(.unselectable)
         }
-        
+
         if date == calendar.startOfDay(for: today) && month.start..<month.end ~= date {
             day.options.insert(.today)
         }
@@ -145,12 +156,16 @@ fileprivate extension AirbnbDatePickerViewModel {
         if let startIndex = indexPathForSelectedStartDate, startIndex == indexPath {
             day.options.insert(.selectedStart)
             day.options.insert(.selected)
+
+            if indexPathForSelectedEndDate == nil {
+                day.options.insert(.selectedEnd)
+            }
         }
-        
+
         if let endIndexPath = indexPathForSelectedEndDate, endIndexPath == indexPath {
             day.options.insert(.selectedEnd)
         }
-        
+
         if let startIndexPath = indexPathForSelectedStartDate, let endIndexPath = indexPathForSelectedEndDate, startIndexPath...endIndexPath ~= indexPath {
             day.options.insert(.selected)
         }

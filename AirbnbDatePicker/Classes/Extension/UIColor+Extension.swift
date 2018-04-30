@@ -37,12 +37,12 @@ extension UIColor {
         return UIColor(hexString: hexString)
     }
 
-    /// Return a color with hex: `#4f4d4b`.
-    static let text        = color("#4f4d4b")
-    /// Return a color with hex: `#373533`.
-    static let textDarker  = color("#373533")
-    /// Return a color with hex: `#686562`.
-    static let textLighter = color("#686562")
+    /// Return a color with hex: `#484848`.
+    static let text        = color("#484848")
+    /// Return a color with hex: `#373737`.
+    static let textDarker  = color("#373737")
+    /// Return a color with hex: `#888888`.
+    static let textLighter = color("#888888")
 
     /// Return a color with hex: `#3bcdac`.
     static let sub         = color("#3bcdac")

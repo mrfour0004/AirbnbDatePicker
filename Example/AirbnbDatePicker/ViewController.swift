@@ -15,7 +15,17 @@ class ViewController: UIViewController {
 
     private var selectedDateInterval: DateInterval? {
         didSet {
-            label.text = String(describing: selectedDateInterval)
+            guard let dateInterval = selectedDateInterval else {
+                label.text = "No selected dates"
+                return
+            }
+
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateStyle = .medium
+            dateFormatter.timeStyle = .short
+            let start = dateFormatter.string(from: dateInterval.start)
+            let end = dateFormatter.string(from: dateInterval.end)
+            label.text = String(describing: "Start: \(start)\nEnd: \(end)")
         }
     }
 
@@ -35,10 +45,12 @@ class ViewController: UIViewController {
 
         present(datePickerViewController, animated: true, completion: nil)
     }
+
+    
 }
 
 extension ViewController: AirbnbDatePickerViewControllerDelegate {
-    func datePickerController(_ picker: AirbnbDatePickerViewController, didFinishPicking dateInterval: DateInterval) {
+    func datePickerController(_ picker: AirbnbDatePickerViewController, didFinishPicking dateInterval: DateInterval?) {
         selectedDateInterval = dateInterval
     }
 }

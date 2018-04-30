@@ -9,7 +9,7 @@
 import UIKit
 
 @objc public protocol AirbnbDatePickerViewControllerDelegate: class {
-    @objc optional func datePickerController(_ picker: AirbnbDatePickerViewController, didFinishPicking dateInterval: DateInterval)
+    @objc optional func datePickerController(_ picker: AirbnbDatePickerViewController, didFinishPicking dateInterval: DateInterval?)
 }
 
 public class AirbnbDatePickerViewController: UIViewController {
@@ -34,8 +34,8 @@ public class AirbnbDatePickerViewController: UIViewController {
 
     private var weekdayHeaderStackView: UIStackView!
     private let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
-    private let titleView = UIView()
-    private let titleLabel = UILabel()
+    private let headerView = UIView()
+    private let titleView = AirbnbDatePickerTitleView(period: (nil, nil))
     private let clearButton = UIButton(type: .system)
     private let actionButton = UIButton(type: .system)
     
@@ -58,49 +58,30 @@ public class AirbnbDatePickerViewController: UIViewController {
         collectionView.reloadData()
         collectionView.layoutIfNeeded()
     }
-    
-    @available(iOS 11.0, *)
-    override public func viewSafeAreaInsetsDidChange() {
-        super.viewSafeAreaInsetsDidChange()
-        guard isFirstLoad else { return }
+
+    public override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         scrollToSelectedDateOrToday(animated: false)
     }
-    
-    override public func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        
-        if #available(iOS 11.0, *) {
-            // The logic is implemented in `viewSafeAreaInsetsDidChange`
-        } else {
-            guard isFirstLoad else { return }
-            scrollToSelectedDateOrToday(animated: false)
-        }
+
+    public override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
     }
 }
 
 // MARK: - Button events
 
 public extension AirbnbDatePickerViewController {
-    @objc func didClickTodayButton(_ button: UIBarButtonItem) {
-        viewModel.selectToday()
-        collectionView.reloadData()
-        scrollToSelectedDateOrToday(animated: true)
-    }
-
     @objc func didClickActionButton(_ button: UIButton) {
-        guard let selectedDateInterval = viewModel.selectedDateInterval else {
-            // TODO: Should remind users to pick dates?
-            return
-        }
-
         dismiss(animated: true) { [weak self] in
             guard let `self` = self else { return }
-            self.delegate?.datePickerController?(self, didFinishPicking: selectedDateInterval)
+            self.delegate?.datePickerController?(self, didFinishPicking: self.viewModel.selectedDateInterval)
         }
     }
 
     @objc func didClickClearButton(_ button: UIButton) {
-        loggingPrint("")
+        viewModel.clear()
+        updateUI()
     }
 }
 
@@ -116,28 +97,29 @@ fileprivate extension AirbnbDatePickerViewController {
         prepareWeekdayStackView()
         prepareActionButton()
         prepareSubviewConstriats()
+
+        updateUI()
     }
 
     func prepareTitleView() {
-        titleLabel.text = "Select dates"
-        titleLabel.font = Font.medium(ofSize: 14)
-        titleLabel.textColor = .text
-        titleLabel.translatesAutoresizingMaskIntoConstraints = false
-
         clearButton.setTitle(NSLocalizedString("Clear", comment: ""), for: .normal)
         clearButton.setTitleColor(.darkGray, for: .normal)
+        clearButton.setTitleColor(.disabled, for: .disabled)
+
         clearButton.titleLabel?.font = Font.medium(ofSize: 14)
         clearButton.addTarget(self, action: #selector(didClickClearButton(_:)), for: .touchUpInside)
         clearButton.translatesAutoresizingMaskIntoConstraints = false
 
-        titleView.addSubview(titleLabel)
-        titleView.addSubview(clearButton)
+        titleView.translatesAutoresizingMaskIntoConstraints = false
+
+        headerView.addSubview(titleView)
+        headerView.addSubview(clearButton)
 
         NSLayoutConstraint.activate([
-            titleLabel.centerXAnchor.constraint(equalTo: titleView.centerXAnchor),
-            titleLabel.centerYAnchor.constraint(equalTo: titleView.centerYAnchor),
-            clearButton.centerYAnchor.constraint(equalTo: titleView.centerYAnchor),
-            clearButton.trailingAnchor.constraint(equalTo: titleView.trailingAnchor, constant: -20)
+            titleView.separator.centerXAnchor.constraint(equalTo: headerView.centerXAnchor),
+            titleView.centerYAnchor.constraint(equalTo: headerView.centerYAnchor),
+            clearButton.centerYAnchor.constraint(equalTo: headerView.centerYAnchor),
+            clearButton.trailingAnchor.constraint(equalTo: headerView.trailingAnchor, constant: -20)
         ])
     }
     
@@ -154,6 +136,8 @@ fileprivate extension AirbnbDatePickerViewController {
     func prepareActionButton() {
         actionButton.setTitle(actionTitle, for: .normal)
         actionButton.setTitleColor(.main, for: .normal)
+        actionButton.setTitleColor(.disabled, for: .disabled)
+        actionButton.titleLabel?.font = Font.medium(ofSize: 16)
         actionButton.addTarget(self, action: #selector(didClickActionButton), for: .touchUpInside)
     }
 
@@ -182,14 +166,14 @@ fileprivate extension AirbnbDatePickerViewController {
         let footerSeparator = UIView()
         footerSeparator.backgroundColor = .separator
 
-        let stackView = UIStackView(arrangedSubviews: [titleView, weekdayHeaderStackView, headerSeparator, collectionView, footerSeparator, actionButton])
+        let stackView = UIStackView(arrangedSubviews: [headerView, weekdayHeaderStackView, headerSeparator, collectionView, footerSeparator, actionButton])
 
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
 
         view.addSubview(stackView)
         NSLayoutConstraint.activate([
-            titleView.heightAnchor.constraint(equalToConstant: Config.titleViewHeight),
+            headerView.heightAnchor.constraint(equalToConstant: Config.headerViewHeight),
             weekdayHeaderStackView.heightAnchor.constraint(equalToConstant: Config.weekdayHeaderHeight),
             headerSeparator.heightAnchor.constraint(equalToConstant: 1),
             footerSeparator.heightAnchor.constraint(equalToConstant: 1),
@@ -213,6 +197,18 @@ fileprivate extension AirbnbDatePickerViewController {
         guard let indexPath = viewModel.indexPath(for: dateToScroll) else { return }
         collectionView.scrollToSupplementaryView(ofKind: UICollectionElementKindSectionHeader, at: indexPath, at: .top, animated: animated)
     }
+
+    func updateUI() {
+        collectionView.reloadData()
+        updateTitle()
+
+        actionButton.setEnabled(viewModel.selectedStartDate == nil || viewModel.selectedEndDate != nil, animated: true)
+        clearButton.setEnabled(viewModel.selectedStartDate != nil, animated: true)
+    }
+
+    func updateTitle() {
+        titleView.period = (viewModel.selectedStartDate, viewModel.selectedEndDate)
+    }
 }
 
 // MARK: - Collection delegate
@@ -220,7 +216,7 @@ fileprivate extension AirbnbDatePickerViewController {
 extension AirbnbDatePickerViewController: UICollectionViewDelegate {
     public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         viewModel.selectDay(at: indexPath)
-        collectionView.reloadData()
+        updateUI()
     }
 }
 
@@ -267,6 +263,8 @@ fileprivate extension AirbnbDatePickerViewController {
         static let sectionVerticalInset: CGFloat = 8
         static let sectionHorizonInset: CGFloat = 0
         static let weekdayHeaderHeight: CGFloat = 32
-        static let titleViewHeight: CGFloat = 44
+        static let headerViewHeight: CGFloat = 44
+
+        static let titleFont = Font.medium(ofSize: 14)
     }
 }
