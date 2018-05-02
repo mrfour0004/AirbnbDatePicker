@@ -88,8 +88,8 @@ fileprivate extension AirbnbDatePickerTitleView {
             stackView.alpha = 1
 
             startLabel.attributedText = attrString(for: start.shortDateString)
-            separator.backgroundColor = .textLighter
-            endLabel.attributedText = attrString(for: Config.endDateString, color: .textLighter)
+            separator.backgroundColor = .placeholder
+            endLabel.attributedText = attrString(for: Config.endDateString, color: .placeholder)
         case (let start?, let end?):
             titleLabel.alpha = 0
             stackView.alpha = 1

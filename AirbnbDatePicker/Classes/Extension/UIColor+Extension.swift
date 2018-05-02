@@ -37,24 +37,11 @@ extension UIColor {
         return UIColor(hexString: hexString)
     }
 
-    /// Return a color with hex: `#484848`.
-    static let text        = color("#484848")
-    /// Return a color with hex: `#373737`.
-    static let textDarker  = color("#373737")
-    /// Return a color with hex: `#888888`.
-    static let textLighter = color("#888888")
 
-    /// Return a color with hex: `#3bcdac`.
-    static let sub         = color("#3bcdac")
-    /// Return a color with hex: `#00ab84`.
-    static let subDarker   = color("#00ab84")
-    /// Return a color with hex: `#67fcdb`.
-    static let subLighter  = color("#67fcdb")
+    static var text: UIColor { return ThemeManager.current.textColor }
+    static var main: UIColor { return ThemeManager.current.mainColor }
+    static var disabled: UIColor { return ThemeManager.current.disabledColor }
+    static var separator: UIColor { return ThemeManager.current.separatorColor }
+    static var placeholder: UIColor { return ThemeManager.current.placeholderColor }
 
-    /// Return a color with hex: `#f7931e`.
-    static let main        = color("#f7931e")
-    /// Return a color with hex: `#ebebeb`.
-    static let separator   = color("#ebebeb")
-    /// Return a color with hex: `#d4d4d4`.
-    static let disabled    = color("#d4d4d4")
 }
