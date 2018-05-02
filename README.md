@@ -34,7 +34,7 @@ In your `UIViewController` subclass, import `AirbnbDatePicker`.
 import AirbnbDatePicker
 ```
 
-### Present `AirbnbDatePicker`
+**Present `AirbnbDatePicker`**
 
 ```swift
 // setup selectable dateInterval
@@ -47,7 +47,7 @@ let dateInterval = DateInterval(start: Date(), duration: 86400*365)
 dp.presentDatePickerViewController(dateInterval: dateInterval, selectedDateInterval: selectedDateInterval, delegate: self)
 ```
 
-### Delegation of `AirbnbDatePicker`
+**Delegation of `AirbnbDatePicker`**
 
 `AirbnbDatePicker` uses the delegate pattern to handle the selected dates
 ```swift
