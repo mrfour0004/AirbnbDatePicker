@@ -5,6 +5,8 @@
 [![License](https://img.shields.io/cocoapods/l/AirbnbDatePicker.svg?style=flat)](http://cocoapods.org/pods/AirbnbDatePicker)
 [![Platform](https://img.shields.io/cocoapods/p/AirbnbDatePicker.svg?style=flat)](http://cocoapods.org/pods/AirbnbDatePicker)
 
+**AirbnbDatePicker** is a library for picking date (range) on iOS devices. It is also an self-taught project to learn how to make some of great designed views.  The user-interface is inspired by Airbnb, which is always one of my favorite apps.
+
 ## Example
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
