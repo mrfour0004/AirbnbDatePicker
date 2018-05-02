@@ -1,5 +1,5 @@
 import XCTest
-import AirbnbDatePicker
+@testable import AirbnbDatePicker
 
 class Tests: XCTestCase {
     

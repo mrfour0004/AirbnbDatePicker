@@ -1,0 +1,860 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0B629844BFDE28E59D70B07B2AC6E7BC /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8489CE61B5876A41CD9B3C0EB4E347C /* Font.swift */; };
+		0B712C2C825A2694E23CD9C77E002756 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
+		1AC7143BFE7D66CA64429D6882BCFB7C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
+		2552DC5ADCD82F9873D409EFDADE8A1B /* Pods-AirbnbDatePicker_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 83E290E1C90AEA7B336EC6EE2B83FDAF /* Pods-AirbnbDatePicker_Tests-dummy.m */; };
+		260EB8F4C21CD25358DA1656C7967409 /* UIScrollView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46CF2972DBD8C0FB5AEF1080459F3CE9 /* UIScrollView+Extension.swift */; };
+		3E520970526683A23B2A5DF03743CC3C /* Pods-AirbnbDatePicker_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 25349E914F93BCA6CB7515C89745BAC7 /* Pods-AirbnbDatePicker_Example-dummy.m */; };
+		42966C880B55D5425BCEB3F3745746C6 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16EF0DED9D79CE39ADA6FFDC779129B /* UIViewController+Extension.swift */; };
+		44B152412BDE87DCA3845BB1CE9909FF /* AirbnbDatePickerHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C005F333057B47A20AC6E4D4CD13DF /* AirbnbDatePickerHeaderView.swift */; };
+		482F1D6712E790EA4F863BE5BA8AFE4A /* AirbnbDatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54AB5C5E257E0E1AEA31DC7DE9B82A95 /* AirbnbDatePickerViewController.swift */; };
+		512F7FD1488CBE3F53169FCFD609D404 /* NSObject+ClassName.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA943C9CA5566435C01693265376A9B1 /* NSObject+ClassName.swift */; };
+		5E4940ED2081EE2100B908B9 /* AirbnbPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4940EC2081EE2100B908B9 /* AirbnbPresentationController.swift */; };
+		5E4940F320832F3C00B908B9 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4940F220832F3C00B908B9 /* Constant.swift */; };
+		5E4940F72084EA2800B908B9 /* Date+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4940F62084EA2800B908B9 /* Date+String.swift */; };
+		5E4940F92086461700B908B9 /* AirbnbDatePickerTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4940F82086461700B908B9 /* AirbnbDatePickerTitleView.swift */; };
+		5E5B749520976E2D0005B611 /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5B749420976E2D0005B611 /* ThemeManager.swift */; };
+		5E7251D92087A0AF000214C9 /* UIControl+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7251D82087A0AF000214C9 /* UIControl+Extension.swift */; };
+		5E9F52DA209A0B05001CA434 /* AirbnbDatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9F52D9209A0B05001CA434 /* AirbnbDatePicker.swift */; };
+		6BBA61877BFC150233C81C5329148B31 /* AirbnbDatePickerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED75757036D06C984B94686FBE1F95A /* AirbnbDatePickerCollectionViewCell.swift */; };
+		7590C1DFEE4CA8D9337097E6E349A04E /* AirbnbDatePickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E730CE34E2FCD931E7CD05C32DF7CE0D /* AirbnbDatePickerViewModel.swift */; };
+		7D4AE895288C573FC605EA82CF63AD19 /* Pods-AirbnbDatePicker_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 2790ED75CC1441D96379AAFF31DAAADA /* Pods-AirbnbDatePicker_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8098A825ED3DC5A53C15D7F0F60A0C8F /* LoggingPrint.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB417E7F4144E7B572C752661B41A788 /* LoggingPrint.swift */; };
+		93A895ACE7500A724B452C1E7181AC71 /* AirbnbDatePicker-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D0F8AE8BAFFDF1BA9E10C6106258F17E /* AirbnbDatePicker-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A599EE400007A25EE472AC198FE50124 /* UICollectionView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C068C0A22CE4F908B291C9F0DE750E6 /* UICollectionView+Extension.swift */; };
+		AB50F3AF088A2E15AC17E38D9F1C442B /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E70B8B8336F03A1333D7CDF0C757E4 /* UIColor+Extension.swift */; };
+		BD60B7325A3CE6EF8E803792A2C13A52 /* CGRect+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426A694FECC1F21BF02E168B11675893 /* CGRect+Extension.swift */; };
+		BE03388AF9DD66D51E28A7B2612D32AE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
+		E3376E9F69B9921EFF8A4789BD51F00C /* AirbnbDatePicker-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C5A4E89CC37B061EFE40C79944080C1 /* AirbnbDatePicker-dummy.m */; };
+		EF561392083838DD85FE519785829C27 /* UIEdgeInsets+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF93CE3B6B5689AF472A5B4FF2507FD /* UIEdgeInsets+Convenience.swift */; };
+		F1E3BD14DA018C79A40044B55B44CB9F /* Pods-AirbnbDatePicker_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = DCC670FFF063B69CCDBA4BC6D3B5E577 /* Pods-AirbnbDatePicker_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		22B6D1A174224D84E599B4A9345BD877 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6C20ABFBBA9685ED83E83098D337950A;
+			remoteInfo = "Pods-AirbnbDatePicker_Example";
+		};
+		846D6BABF468FDEF860E6AE6E575C110 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D6E49D2D7402DCA5F23AE0B887D2338E;
+			remoteInfo = AirbnbDatePicker;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		10E70B8B8336F03A1333D7CDF0C757E4 /* UIColor+Extension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		1438D73697D8927C04740AE8704A77D4 /* Pods-AirbnbDatePicker_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-AirbnbDatePicker_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
+		25349E914F93BCA6CB7515C89745BAC7 /* Pods-AirbnbDatePicker_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-AirbnbDatePicker_Example-dummy.m"; sourceTree = "<group>"; };
+		2790ED75CC1441D96379AAFF31DAAADA /* Pods-AirbnbDatePicker_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-AirbnbDatePicker_Tests-umbrella.h"; sourceTree = "<group>"; };
+		2A6BED4A3551821152D05A26067D722A /* AirbnbDatePicker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AirbnbDatePicker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2C068C0A22CE4F908B291C9F0DE750E6 /* UICollectionView+Extension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extension.swift"; sourceTree = "<group>"; };
+		426A694FECC1F21BF02E168B11675893 /* CGRect+Extension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "CGRect+Extension.swift"; sourceTree = "<group>"; };
+		46CF2972DBD8C0FB5AEF1080459F3CE9 /* UIScrollView+Extension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UIScrollView+Extension.swift"; sourceTree = "<group>"; };
+		4C5A4E89CC37B061EFE40C79944080C1 /* AirbnbDatePicker-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "AirbnbDatePicker-dummy.m"; sourceTree = "<group>"; };
+		51CBD1404AE9DD6C9337F24D87D35B1B /* AirbnbDatePicker.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = AirbnbDatePicker.xcconfig; sourceTree = "<group>"; };
+		52672618F7F71CB4C524177AD76DE5D3 /* Pods-AirbnbDatePicker_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-AirbnbDatePicker_Example-acknowledgements.plist"; sourceTree = "<group>"; };
+		54AB5C5E257E0E1AEA31DC7DE9B82A95 /* AirbnbDatePickerViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AirbnbDatePickerViewController.swift; sourceTree = "<group>"; };
+		54E8AC6F741D1507BD40E8A2AE395DEF /* AirbnbDatePicker.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = AirbnbDatePicker.modulemap; sourceTree = "<group>"; };
+		5E4940EC2081EE2100B908B9 /* AirbnbPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirbnbPresentationController.swift; sourceTree = "<group>"; };
+		5E4940F220832F3C00B908B9 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		5E4940F62084EA2800B908B9 /* Date+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+String.swift"; sourceTree = "<group>"; };
+		5E4940F82086461700B908B9 /* AirbnbDatePickerTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirbnbDatePickerTitleView.swift; sourceTree = "<group>"; };
+		5E5B749420976E2D0005B611 /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
+		5E7251D82087A0AF000214C9 /* UIControl+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIControl+Extension.swift"; sourceTree = "<group>"; };
+		5E9F52D9209A0B05001CA434 /* AirbnbDatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirbnbDatePicker.swift; sourceTree = "<group>"; };
+		6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		6BAC6B2A2263765A1557C003D9481608 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		7349D8E00FF01FE19EB5271CB273D0C1 /* AirbnbDatePicker-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "AirbnbDatePicker-prefix.pch"; sourceTree = "<group>"; };
+		74AE53B704AF2AC1E7F9291ABD5FB99A /* Pods-AirbnbDatePicker_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AirbnbDatePicker_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		7B960ABAC3678E3FB60103220D4851CA /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		82C7EEAE61D69D022E484D700E34FDA4 /* Pods-AirbnbDatePicker_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-AirbnbDatePicker_Example-frameworks.sh"; sourceTree = "<group>"; };
+		83E290E1C90AEA7B336EC6EE2B83FDAF /* Pods-AirbnbDatePicker_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-AirbnbDatePicker_Tests-dummy.m"; sourceTree = "<group>"; };
+		8C36775D5DFB61008E1DEFE4F02E812A /* AirbnbDatePicker.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; path = AirbnbDatePicker.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		8D3C55D352F348A17B2D034C52C34FC9 /* Pods_AirbnbDatePicker_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AirbnbDatePicker_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8E8E87EA0A159B898D27F0D7F6A97EAD /* Pods-AirbnbDatePicker_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-AirbnbDatePicker_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
+		935E1F5B48D425FEE5169F45C6D5D07E /* Pods_AirbnbDatePicker_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AirbnbDatePicker_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		94C3D955DA452DC98CB39AEAF4BA9399 /* Pods-AirbnbDatePicker_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AirbnbDatePicker_Example.release.xcconfig"; sourceTree = "<group>"; };
+		9DA16DCCF7F73A9C740AC8436A0A2D8D /* Pods-AirbnbDatePicker_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AirbnbDatePicker_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		A0C005F333057B47A20AC6E4D4CD13DF /* AirbnbDatePickerHeaderView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AirbnbDatePickerHeaderView.swift; sourceTree = "<group>"; };
+		AAF93CE3B6B5689AF472A5B4FF2507FD /* UIEdgeInsets+Convenience.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UIEdgeInsets+Convenience.swift"; sourceTree = "<group>"; };
+		AC0B7AF41EAD2C857A53CC7C1B96A166 /* Pods-AirbnbDatePicker_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-AirbnbDatePicker_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		AC265865D51A7182B7279B7DCE5F677A /* Pods-AirbnbDatePicker_Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-AirbnbDatePicker_Tests-resources.sh"; sourceTree = "<group>"; };
+		B80FC2145BB2D1FA6D0A12B37DA4866C /* Pods-AirbnbDatePicker_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-AirbnbDatePicker_Example-resources.sh"; sourceTree = "<group>"; };
+		BB417E7F4144E7B572C752661B41A788 /* LoggingPrint.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LoggingPrint.swift; sourceTree = "<group>"; };
+		BB44040B301FAA066EF50039BE56B5CA /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C16EF0DED9D79CE39ADA6FFDC779129B /* UIViewController+Extension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		C4C2BAA50DF794C94C55B946D89A2EE4 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CA06CF7B3A0C21B9DA1424B5AA6E2618 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CED75757036D06C984B94686FBE1F95A /* AirbnbDatePickerCollectionViewCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AirbnbDatePickerCollectionViewCell.swift; sourceTree = "<group>"; };
+		D0F8AE8BAFFDF1BA9E10C6106258F17E /* AirbnbDatePicker-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "AirbnbDatePicker-umbrella.h"; sourceTree = "<group>"; };
+		D93316EB6D5B4F2B3D11202EB22523C1 /* Pods-AirbnbDatePicker_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AirbnbDatePicker_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		DCC670FFF063B69CCDBA4BC6D3B5E577 /* Pods-AirbnbDatePicker_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-AirbnbDatePicker_Example-umbrella.h"; sourceTree = "<group>"; };
+		E4BD9ABDB17D00D0BF8111BAF79196F8 /* Pods-AirbnbDatePicker_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-AirbnbDatePicker_Example.modulemap"; sourceTree = "<group>"; };
+		E730CE34E2FCD931E7CD05C32DF7CE0D /* AirbnbDatePickerViewModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AirbnbDatePickerViewModel.swift; sourceTree = "<group>"; };
+		E8489CE61B5876A41CD9B3C0EB4E347C /* Font.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
+		E85335FA21A565E8F30C70C6B44DB527 /* Pods-AirbnbDatePicker_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-AirbnbDatePicker_Tests-frameworks.sh"; sourceTree = "<group>"; };
+		F0F202CAB44BF052DFCF55B414232728 /* Pods-AirbnbDatePicker_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-AirbnbDatePicker_Tests.modulemap"; sourceTree = "<group>"; };
+		FA943C9CA5566435C01693265376A9B1 /* NSObject+ClassName.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "NSObject+ClassName.swift"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		23DBA446789ED4AE099A99EB26E3853A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE03388AF9DD66D51E28A7B2612D32AE /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		92A089CC06618E5BDB73CF69F3CC2F74 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1AC7143BFE7D66CA64429D6882BCFB7C /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EE4478E29A5879DC2810FC5414EB6CE9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0B712C2C825A2694E23CD9C77E002756 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		170FD93DFC6A666BBC4D96FC5C947800 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				426A694FECC1F21BF02E168B11675893 /* CGRect+Extension.swift */,
+				FA943C9CA5566435C01693265376A9B1 /* NSObject+ClassName.swift */,
+				2C068C0A22CE4F908B291C9F0DE750E6 /* UICollectionView+Extension.swift */,
+				10E70B8B8336F03A1333D7CDF0C757E4 /* UIColor+Extension.swift */,
+				5E7251D82087A0AF000214C9 /* UIControl+Extension.swift */,
+				AAF93CE3B6B5689AF472A5B4FF2507FD /* UIEdgeInsets+Convenience.swift */,
+				46CF2972DBD8C0FB5AEF1080459F3CE9 /* UIScrollView+Extension.swift */,
+				C16EF0DED9D79CE39ADA6FFDC779129B /* UIViewController+Extension.swift */,
+				5E4940F62084EA2800B908B9 /* Date+String.swift */,
+			);
+			name = Extension;
+			path = AirbnbDatePicker/Classes/Extension;
+			sourceTree = "<group>";
+		};
+		49B5F6F43F614C9951F9966633B0579E /* Pods-AirbnbDatePicker_Example */ = {
+			isa = PBXGroup;
+			children = (
+				C4C2BAA50DF794C94C55B946D89A2EE4 /* Info.plist */,
+				E4BD9ABDB17D00D0BF8111BAF79196F8 /* Pods-AirbnbDatePicker_Example.modulemap */,
+				8E8E87EA0A159B898D27F0D7F6A97EAD /* Pods-AirbnbDatePicker_Example-acknowledgements.markdown */,
+				52672618F7F71CB4C524177AD76DE5D3 /* Pods-AirbnbDatePicker_Example-acknowledgements.plist */,
+				25349E914F93BCA6CB7515C89745BAC7 /* Pods-AirbnbDatePicker_Example-dummy.m */,
+				82C7EEAE61D69D022E484D700E34FDA4 /* Pods-AirbnbDatePicker_Example-frameworks.sh */,
+				B80FC2145BB2D1FA6D0A12B37DA4866C /* Pods-AirbnbDatePicker_Example-resources.sh */,
+				DCC670FFF063B69CCDBA4BC6D3B5E577 /* Pods-AirbnbDatePicker_Example-umbrella.h */,
+				D93316EB6D5B4F2B3D11202EB22523C1 /* Pods-AirbnbDatePicker_Example.debug.xcconfig */,
+				94C3D955DA452DC98CB39AEAF4BA9399 /* Pods-AirbnbDatePicker_Example.release.xcconfig */,
+			);
+			name = "Pods-AirbnbDatePicker_Example";
+			path = "Target Support Files/Pods-AirbnbDatePicker_Example";
+			sourceTree = "<group>";
+		};
+		53360C20AB4FB963600BA11962A1C7F9 /* AirbnbDatePicker */ = {
+			isa = PBXGroup;
+			children = (
+				F296D03BA9B749C3076D411C77737D81 /* Common */,
+				641B27E13B3E8CBE7FF683C79A503254 /* Core */,
+				170FD93DFC6A666BBC4D96FC5C947800 /* Extension */,
+				8A7BEF61AFA66D96A8E451C0426BD6C7 /* Pod */,
+				53F2381D272406BD5C1C5879ACC8F810 /* Support Files */,
+			);
+			name = AirbnbDatePicker;
+			path = ../..;
+			sourceTree = "<group>";
+		};
+		53F2381D272406BD5C1C5879ACC8F810 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				54E8AC6F741D1507BD40E8A2AE395DEF /* AirbnbDatePicker.modulemap */,
+				51CBD1404AE9DD6C9337F24D87D35B1B /* AirbnbDatePicker.xcconfig */,
+				4C5A4E89CC37B061EFE40C79944080C1 /* AirbnbDatePicker-dummy.m */,
+				7349D8E00FF01FE19EB5271CB273D0C1 /* AirbnbDatePicker-prefix.pch */,
+				D0F8AE8BAFFDF1BA9E10C6106258F17E /* AirbnbDatePicker-umbrella.h */,
+				CA06CF7B3A0C21B9DA1424B5AA6E2618 /* Info.plist */,
+			);
+			name = "Support Files";
+			path = "Example/Pods/Target Support Files/AirbnbDatePicker";
+			sourceTree = "<group>";
+		};
+		586E4D1418DE3F611F9259FF2E4C0B9B /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				49B5F6F43F614C9951F9966633B0579E /* Pods-AirbnbDatePicker_Example */,
+				972FB301B8238409D0D932F5A3896E10 /* Pods-AirbnbDatePicker_Tests */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		641B27E13B3E8CBE7FF683C79A503254 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				CED75757036D06C984B94686FBE1F95A /* AirbnbDatePickerCollectionViewCell.swift */,
+				A0C005F333057B47A20AC6E4D4CD13DF /* AirbnbDatePickerHeaderView.swift */,
+				54AB5C5E257E0E1AEA31DC7DE9B82A95 /* AirbnbDatePickerViewController.swift */,
+				E730CE34E2FCD931E7CD05C32DF7CE0D /* AirbnbDatePickerViewModel.swift */,
+				5E4940F82086461700B908B9 /* AirbnbDatePickerTitleView.swift */,
+				5E4940EC2081EE2100B908B9 /* AirbnbPresentationController.swift */,
+			);
+			name = Core;
+			path = AirbnbDatePicker/Classes/Core;
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
+				F600BD170598065D83406F730E6EFD16 /* Development Pods */,
+				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
+				C639E66EECA9A414F5AA27DE04D89207 /* Products */,
+				586E4D1418DE3F611F9259FF2E4C0B9B /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		8A7BEF61AFA66D96A8E451C0426BD6C7 /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				8C36775D5DFB61008E1DEFE4F02E812A /* AirbnbDatePicker.podspec */,
+				7B960ABAC3678E3FB60103220D4851CA /* LICENSE */,
+				6BAC6B2A2263765A1557C003D9481608 /* README.md */,
+			);
+			name = Pod;
+			sourceTree = "<group>";
+		};
+		972FB301B8238409D0D932F5A3896E10 /* Pods-AirbnbDatePicker_Tests */ = {
+			isa = PBXGroup;
+			children = (
+				BB44040B301FAA066EF50039BE56B5CA /* Info.plist */,
+				F0F202CAB44BF052DFCF55B414232728 /* Pods-AirbnbDatePicker_Tests.modulemap */,
+				AC0B7AF41EAD2C857A53CC7C1B96A166 /* Pods-AirbnbDatePicker_Tests-acknowledgements.markdown */,
+				1438D73697D8927C04740AE8704A77D4 /* Pods-AirbnbDatePicker_Tests-acknowledgements.plist */,
+				83E290E1C90AEA7B336EC6EE2B83FDAF /* Pods-AirbnbDatePicker_Tests-dummy.m */,
+				E85335FA21A565E8F30C70C6B44DB527 /* Pods-AirbnbDatePicker_Tests-frameworks.sh */,
+				AC265865D51A7182B7279B7DCE5F677A /* Pods-AirbnbDatePicker_Tests-resources.sh */,
+				2790ED75CC1441D96379AAFF31DAAADA /* Pods-AirbnbDatePicker_Tests-umbrella.h */,
+				74AE53B704AF2AC1E7F9291ABD5FB99A /* Pods-AirbnbDatePicker_Tests.debug.xcconfig */,
+				9DA16DCCF7F73A9C740AC8436A0A2D8D /* Pods-AirbnbDatePicker_Tests.release.xcconfig */,
+			);
+			name = "Pods-AirbnbDatePicker_Tests";
+			path = "Target Support Files/Pods-AirbnbDatePicker_Tests";
+			sourceTree = "<group>";
+		};
+		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D35AF013A5F0BAD4F32504907A52519E /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C639E66EECA9A414F5AA27DE04D89207 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2A6BED4A3551821152D05A26067D722A /* AirbnbDatePicker.framework */,
+				8D3C55D352F348A17B2D034C52C34FC9 /* Pods_AirbnbDatePicker_Example.framework */,
+				935E1F5B48D425FEE5169F45C6D5D07E /* Pods_AirbnbDatePicker_Tests.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D35AF013A5F0BAD4F32504907A52519E /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		F296D03BA9B749C3076D411C77737D81 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				E8489CE61B5876A41CD9B3C0EB4E347C /* Font.swift */,
+				BB417E7F4144E7B572C752661B41A788 /* LoggingPrint.swift */,
+				5E4940F220832F3C00B908B9 /* Constant.swift */,
+				5E5B749420976E2D0005B611 /* ThemeManager.swift */,
+				5E9F52D9209A0B05001CA434 /* AirbnbDatePicker.swift */,
+			);
+			name = Common;
+			path = AirbnbDatePicker/Classes/Common;
+			sourceTree = "<group>";
+		};
+		F600BD170598065D83406F730E6EFD16 /* Development Pods */ = {
+			isa = PBXGroup;
+			children = (
+				53360C20AB4FB963600BA11962A1C7F9 /* AirbnbDatePicker */,
+			);
+			name = "Development Pods";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		145DA909C45B2EFE04EB0F1B8A22C2AA /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F1E3BD14DA018C79A40044B55B44CB9F /* Pods-AirbnbDatePicker_Example-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		32FC233312BC76212D075F6AAD60BF54 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				93A895ACE7500A724B452C1E7181AC71 /* AirbnbDatePicker-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A997DFDC9F341DFE87EC40D104BE1F40 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7D4AE895288C573FC605EA82CF63AD19 /* Pods-AirbnbDatePicker_Tests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		6C20ABFBBA9685ED83E83098D337950A /* Pods-AirbnbDatePicker_Example */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DFF3ACB28A0957C181C5F26F79803074 /* Build configuration list for PBXNativeTarget "Pods-AirbnbDatePicker_Example" */;
+			buildPhases = (
+				71362B05778815604EFB4C00F9C55D20 /* Sources */,
+				92A089CC06618E5BDB73CF69F3CC2F74 /* Frameworks */,
+				145DA909C45B2EFE04EB0F1B8A22C2AA /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				869C6D4D80DAEAC8265E50B4AD3583AE /* PBXTargetDependency */,
+			);
+			name = "Pods-AirbnbDatePicker_Example";
+			productName = "Pods-AirbnbDatePicker_Example";
+			productReference = 8D3C55D352F348A17B2D034C52C34FC9 /* Pods_AirbnbDatePicker_Example.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		D6E49D2D7402DCA5F23AE0B887D2338E /* AirbnbDatePicker */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E3225903CE0E1BF6F9FC510443DC15C0 /* Build configuration list for PBXNativeTarget "AirbnbDatePicker" */;
+			buildPhases = (
+				A5A392C0585F4A2A3365F226C52E261F /* Sources */,
+				EE4478E29A5879DC2810FC5414EB6CE9 /* Frameworks */,
+				32FC233312BC76212D075F6AAD60BF54 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AirbnbDatePicker;
+			productName = AirbnbDatePicker;
+			productReference = 2A6BED4A3551821152D05A26067D722A /* AirbnbDatePicker.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		D76D882BEABCDEF810F037C38BF36C8A /* Pods-AirbnbDatePicker_Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9E6BA9A5D2EDDE41DD3F3C4FD3E3E155 /* Build configuration list for PBXNativeTarget "Pods-AirbnbDatePicker_Tests" */;
+			buildPhases = (
+				D48CF360B432DBEDEDB61C56BE0512CB /* Sources */,
+				23DBA446789ED4AE099A99EB26E3853A /* Frameworks */,
+				A997DFDC9F341DFE87EC40D104BE1F40 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6182615C59EDDB310E8884C7A3E536F3 /* PBXTargetDependency */,
+			);
+			name = "Pods-AirbnbDatePicker_Tests";
+			productName = "Pods-AirbnbDatePicker_Tests";
+			productReference = 935E1F5B48D425FEE5169F45C6D5D07E /* Pods_AirbnbDatePicker_Tests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0930;
+				LastUpgradeCheck = 0940;
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = C639E66EECA9A414F5AA27DE04D89207 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D6E49D2D7402DCA5F23AE0B887D2338E /* AirbnbDatePicker */,
+				6C20ABFBBA9685ED83E83098D337950A /* Pods-AirbnbDatePicker_Example */,
+				D76D882BEABCDEF810F037C38BF36C8A /* Pods-AirbnbDatePicker_Tests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		71362B05778815604EFB4C00F9C55D20 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3E520970526683A23B2A5DF03743CC3C /* Pods-AirbnbDatePicker_Example-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A5A392C0585F4A2A3365F226C52E261F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E3376E9F69B9921EFF8A4789BD51F00C /* AirbnbDatePicker-dummy.m in Sources */,
+				BD60B7325A3CE6EF8E803792A2C13A52 /* CGRect+Extension.swift in Sources */,
+				0B629844BFDE28E59D70B07B2AC6E7BC /* Font.swift in Sources */,
+				5E4940F320832F3C00B908B9 /* Constant.swift in Sources */,
+				8098A825ED3DC5A53C15D7F0F60A0C8F /* LoggingPrint.swift in Sources */,
+				512F7FD1488CBE3F53169FCFD609D404 /* NSObject+ClassName.swift in Sources */,
+				6BBA61877BFC150233C81C5329148B31 /* AirbnbDatePickerCollectionViewCell.swift in Sources */,
+				5E5B749520976E2D0005B611 /* ThemeManager.swift in Sources */,
+				5E4940ED2081EE2100B908B9 /* AirbnbPresentationController.swift in Sources */,
+				5E4940F72084EA2800B908B9 /* Date+String.swift in Sources */,
+				5E9F52DA209A0B05001CA434 /* AirbnbDatePicker.swift in Sources */,
+				5E4940F92086461700B908B9 /* AirbnbDatePickerTitleView.swift in Sources */,
+				44B152412BDE87DCA3845BB1CE9909FF /* AirbnbDatePickerHeaderView.swift in Sources */,
+				482F1D6712E790EA4F863BE5BA8AFE4A /* AirbnbDatePickerViewController.swift in Sources */,
+				7590C1DFEE4CA8D9337097E6E349A04E /* AirbnbDatePickerViewModel.swift in Sources */,
+				A599EE400007A25EE472AC198FE50124 /* UICollectionView+Extension.swift in Sources */,
+				AB50F3AF088A2E15AC17E38D9F1C442B /* UIColor+Extension.swift in Sources */,
+				5E7251D92087A0AF000214C9 /* UIControl+Extension.swift in Sources */,
+				EF561392083838DD85FE519785829C27 /* UIEdgeInsets+Convenience.swift in Sources */,
+				260EB8F4C21CD25358DA1656C7967409 /* UIScrollView+Extension.swift in Sources */,
+				42966C880B55D5425BCEB3F3745746C6 /* UIViewController+Extension.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D48CF360B432DBEDEDB61C56BE0512CB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2552DC5ADCD82F9873D409EFDADE8A1B /* Pods-AirbnbDatePicker_Tests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		6182615C59EDDB310E8884C7A3E536F3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-AirbnbDatePicker_Example";
+			target = 6C20ABFBBA9685ED83E83098D337950A /* Pods-AirbnbDatePicker_Example */;
+			targetProxy = 22B6D1A174224D84E599B4A9345BD877 /* PBXContainerItemProxy */;
+		};
+		869C6D4D80DAEAC8265E50B4AD3583AE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = AirbnbDatePicker;
+			target = D6E49D2D7402DCA5F23AE0B887D2338E /* AirbnbDatePicker */;
+			targetProxy = 846D6BABF468FDEF860E6AE6E575C110 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		553022A828EE1991F07D2D73F565AEF8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		58CE816B060A41D32CEC095441D0E3E0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		6D719DBC9854BFB6A163EE8C984AB075 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D93316EB6D5B4F2B3D11202EB22523C1 /* Pods-AirbnbDatePicker_Example.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-AirbnbDatePicker_Example/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-AirbnbDatePicker_Example/Pods-AirbnbDatePicker_Example.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		76A7A069B6D10E51F2457574DFF027BF /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 94C3D955DA452DC98CB39AEAF4BA9399 /* Pods-AirbnbDatePicker_Example.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-AirbnbDatePicker_Example/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-AirbnbDatePicker_Example/Pods-AirbnbDatePicker_Example.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		879E8E831DD376CAB027B0E7B86E1329 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 51CBD1404AE9DD6C9337F24D87D35B1B /* AirbnbDatePicker.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/AirbnbDatePicker/AirbnbDatePicker-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/AirbnbDatePicker/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/AirbnbDatePicker/AirbnbDatePicker.modulemap";
+				PRODUCT_MODULE_NAME = AirbnbDatePicker;
+				PRODUCT_NAME = AirbnbDatePicker;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		CBC950F51052E59956BBF5622E587286 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 51CBD1404AE9DD6C9337F24D87D35B1B /* AirbnbDatePicker.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/AirbnbDatePicker/AirbnbDatePicker-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/AirbnbDatePicker/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/AirbnbDatePicker/AirbnbDatePicker.modulemap";
+				PRODUCT_MODULE_NAME = AirbnbDatePicker;
+				PRODUCT_NAME = AirbnbDatePicker;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		DE14F6F82F76A187199CA6368F5BB3C9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 74AE53B704AF2AC1E7F9291ABD5FB99A /* Pods-AirbnbDatePicker_Tests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-AirbnbDatePicker_Tests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-AirbnbDatePicker_Tests/Pods-AirbnbDatePicker_Tests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		E16B5148C94753BE935163FE75926EBD /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9DA16DCCF7F73A9C740AC8436A0A2D8D /* Pods-AirbnbDatePicker_Tests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-AirbnbDatePicker_Tests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-AirbnbDatePicker_Tests/Pods-AirbnbDatePicker_Tests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				553022A828EE1991F07D2D73F565AEF8 /* Debug */,
+				58CE816B060A41D32CEC095441D0E3E0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9E6BA9A5D2EDDE41DD3F3C4FD3E3E155 /* Build configuration list for PBXNativeTarget "Pods-AirbnbDatePicker_Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DE14F6F82F76A187199CA6368F5BB3C9 /* Debug */,
+				E16B5148C94753BE935163FE75926EBD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DFF3ACB28A0957C181C5F26F79803074 /* Build configuration list for PBXNativeTarget "Pods-AirbnbDatePicker_Example" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6D719DBC9854BFB6A163EE8C984AB075 /* Debug */,
+				76A7A069B6D10E51F2457574DFF027BF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E3225903CE0E1BF6F9FC510443DC15C0 /* Build configuration list for PBXNativeTarget "AirbnbDatePicker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				879E8E831DD376CAB027B0E7B86E1329 /* Debug */,
+				CBC950F51052E59956BBF5622E587286 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}

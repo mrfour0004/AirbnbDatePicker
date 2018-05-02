@@ -1,0 +1,6 @@
+framework module AirbnbDatePicker {
+  umbrella header "AirbnbDatePicker-umbrella.h"
+
+  export *
+  module * { export * }
+}

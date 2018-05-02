@@ -1,0 +1,22 @@
+{
+  "name": "AirbnbDatePicker",
+  "version": "0.1.0",
+  "summary": "A short description of AirbnbDatePicker.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/mrfour0004@outlook.com/AirbnbDatePicker",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "mrfour0004@outlook.com": "mrfour0004@outlook.com"
+  },
+  "source": {
+    "git": "https://github.com/mrfour0004@outlook.com/AirbnbDatePicker.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "10.0"
+  },
+  "source_files": "AirbnbDatePicker/Classes/**/*"
+}
