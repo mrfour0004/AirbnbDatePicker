@@ -40,7 +40,7 @@ public class AirbnbDatePickerViewController: UIViewController {
     private let actionButton = UIButton(type: .system)
     
     // MARK: - Life cycle
-    
+
     public init(dateInterval: DateInterval, selectedDateInterval: DateInterval?, calendar: Calendar = Calendar.current) {
         self.calendar = calendar
         self.viewModel = AirbnbDatePickerViewModel(dateInterval: dateInterval, selectedDateInterval: selectedDateInterval, calendar: calendar)

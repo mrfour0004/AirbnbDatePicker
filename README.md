@@ -11,6 +11,10 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 ## Requirements
 
+- iOS 10.0+
+- Xcode 9.0
+- Swift 4.0
+
 ## Installation
 
 AirbnbDatePicker is available through [CocoaPods](http://cocoapods.org). To install
@@ -20,9 +24,40 @@ it, simply add the following line to your Podfile:
 pod 'AirbnbDatePicker'
 ```
 
-## Author
+## Usage
 
-mrfour0004@outlook.com, mrfour0004@outlook.com
+In your `UIViewController` subclass, import `AirbnbDatePicker`.
+
+```swift 
+// MyViewController.swift
+
+import AirbnbDatePicker
+```
+
+### Present `AirbnbDatePicker`
+
+```swift
+// setup selectable dateInterval
+let dateInterval = DateInterval(start: Date(), duration: 86400*365)
+
+// use provided convenience function to present `AirbnbDatePickerViewController`
+//
+// if `selectedDateInterval` is provided, the `AirbnbDatePickerViewController` will 
+// select them and scroll to the selected dates automatically.
+dp.presentDatePickerViewController(dateInterval: dateInterval, selectedDateInterval: selectedDateInterval, delegate: self)
+```
+
+### Delegation of `AirbnbDatePicker`
+
+`AirbnbDatePicker` uses the delegate pattern to handle the selected dates
+```swift
+extension MyViewController: AirbnbDatePickerViewControllerDelegate {
+    func datePickerController(_ picker: AirbnbDatePickerViewController, didFinishPicking dateInterval: DateInterval?) {
+        // do whatever you want to selected dates
+        selectedDateInterval = dateInterval
+    }
+}
+```
 
 ## License
 

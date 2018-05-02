@@ -6,7 +6,6 @@
 //  Copyright (c) 2018 mrfour0004@outlook.com. All rights reserved.
 //
 
-import UIKit
 import AirbnbDatePicker
 
 class ViewController: UIViewController {
@@ -46,16 +45,9 @@ class ViewController: UIViewController {
         AirbnbDatePicker.ThemeManager.current = datePickerTheme
 
         let dateInterval = DateInterval(start: Date(), duration: 86400*365)
-        let datePickerViewController = AirbnbDatePickerViewController(dateInterval: dateInterval, selectedDateInterval: selectedDateInterval)
-        datePickerViewController.delegate = self
 
-        let presentationController = AirbnbPresentationController(presentedViewController: datePickerViewController, presenting: self)
-        datePickerViewController.transitioningDelegate = presentationController
-
-        present(datePickerViewController, animated: true, completion: nil)
-    }
-
-    
+        dp.presentDatePickerViewController(dateInterval: dateInterval, selectedDateInterval: selectedDateInterval, delegate: self)
+    }    
 }
 
 extension ViewController: AirbnbDatePickerViewControllerDelegate {
