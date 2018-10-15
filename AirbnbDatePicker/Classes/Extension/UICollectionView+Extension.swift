@@ -15,7 +15,7 @@ extension UICollectionView {
     ///   - indexPath: The index path of the supplementary view.
     ///   - scrollPosition: A constant that identifies a relative position in the collection view for supplementary view when scrolling concludes. See [UITableViewScrollPosition](https://developer.apple.com/documentation/uikit/uicollectionviewscrollposition) for descriptions of valid constants.
     ///   - animated: true if you want to animate the change in position; false if it should be immediate.
-    func scrollToSupplementaryView(ofKind kind: String, at indexPath: IndexPath, at scrollPosition: UICollectionViewScrollPosition, animated: Bool) {
+    func scrollToSupplementaryView(ofKind kind: String, at indexPath: IndexPath, at scrollPosition: UICollectionView.ScrollPosition, animated: Bool) {
         guard let supplementaryFrame = layoutAttributesForSupplementaryElement(ofKind: kind, at: indexPath)?.frame else { return }
 
         var offsetY: CGFloat?
@@ -27,11 +27,11 @@ extension UICollectionView {
             offsetY = supplementaryFrame.midY - contentInset.top - (frame.height - contentInset.top - contentInset.bottom)/2
         case .bottom:
             offsetY = supplementaryFrame.maxY - self.frame.height
-        case UICollectionViewScrollPosition.left:
+        case .left:
             offsetX = supplementaryFrame.minX
-        case UICollectionViewScrollPosition.centeredHorizontally:
+        case .centeredHorizontally:
             offsetX = supplementaryFrame.minX
-        case UICollectionViewScrollPosition.right:
+        case .right:
             offsetX = supplementaryFrame.maxX
         default: break
         }

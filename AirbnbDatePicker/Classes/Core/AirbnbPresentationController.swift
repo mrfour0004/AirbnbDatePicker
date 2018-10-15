@@ -173,7 +173,7 @@ fileprivate extension AirbnbPresentationController {
 
 extension AirbnbPresentationController: UIViewControllerAnimatedTransitioning {
     public func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
-        return Double(UINavigationControllerHideShowBarDuration)
+        return Double(UINavigationController.hideShowBarDuration)
     }
 
     public func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {

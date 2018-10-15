@@ -126,7 +126,7 @@ fileprivate extension AirbnbDatePickerViewController {
     func prepareCollectionView() {
         collectionView.backgroundColor = .white
         collectionView.register(AirbnbDatePickerCollectionViewCell.self, forCellWithReuseIdentifier: AirbnbDatePickerCollectionViewCell.className)
-        collectionView.register(AirbnbDatePickerHeaderView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: AirbnbDatePickerHeaderView.className)
+        collectionView.register(AirbnbDatePickerHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: AirbnbDatePickerHeaderView.className)
         collectionView.showsVerticalScrollIndicator = false
         
         collectionView.dataSource = viewModel
@@ -195,7 +195,7 @@ fileprivate extension AirbnbDatePickerViewController {
         
         let dateToScroll = viewModel.selectedDateInterval?.start ?? Date()
         guard let indexPath = viewModel.indexPath(for: dateToScroll) else { return }
-        collectionView.scrollToSupplementaryView(ofKind: UICollectionElementKindSectionHeader, at: indexPath, at: .top, animated: animated)
+        collectionView.scrollToSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, at: indexPath, at: .top, animated: animated)
     }
 
     func updateUI() {

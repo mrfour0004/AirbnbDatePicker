@@ -181,7 +181,7 @@ extension AirbnbDatePickerViewModel: UICollectionViewDataSource {
     public func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let month = months[indexPath.section]
         
-        if kind == UICollectionElementKindSectionHeader {
+        if kind == UICollectionView.elementKindSectionHeader {
             let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: AirbnbDatePickerHeaderView.className, for: indexPath) as! AirbnbDatePickerHeaderView
             headerView.label.text = month.title
             return headerView
